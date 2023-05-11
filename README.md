@@ -62,3 +62,14 @@ export default {
 ```
 
 [example files](https://github.com/cilly-yllic/firebase-rules-bundler/tree/main/example)
+```firebase_rules
+rules_version = '2';
+
+// @import ./functions/firestore.index.rules
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // @import ./hero/index.rules
+  }
+}
+```
