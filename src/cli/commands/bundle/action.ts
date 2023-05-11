@@ -4,7 +4,7 @@ import { join, dirname } from 'path'
 import { ALIASES, Type, TYPES } from '../../../internal/types/bundle-type.js'
 import { ActionArg } from '../../../internal/types/command.js'
 import { BundleOptions } from '../../../internal/types/options.js'
-import { Settings } from '../../../internal/types/settings.js'
+import { Setting } from '../../../internal/types/settings.js'
 import { importLineRegExp, indentRegExp } from '../../../internal/utils/configs.js'
 import { table, labeledBullet, labeledSuccess } from '../../../internal/utils/log.js'
 import { getFullPath } from '../../../internal/utils/path.js'
@@ -60,8 +60,8 @@ const importChildren = (rule: string, path: string, options: BundleOptions, doc:
     .join('\n')
 }
 
-const bundle = (type: Type, options: BundleOptions, settings: Settings) => {
-  const { doc, directoryPath, main, output } = settings[type]
+const bundle = (options: BundleOptions, setting: Setting) => {
+  const { doc, directoryPath, main, output } = setting
   const filepath = join(directoryPath, main)
   const rule = getRule(getFullPath(filepath))
   const outputPath = join(directoryPath, output)
@@ -92,6 +92,12 @@ export const action = async ({ options, settings }: ActionArg<BundleOptions>) =>
     return
   }
   for (const type of types) {
-    bundle(type, options, settings)
+    if (type === TYPES.storage) {
+      for (const setting of settings[type]) {
+        bundle(options, setting)
+      }
+      continue
+    }
+    bundle(options, settings[type])
   }
 }

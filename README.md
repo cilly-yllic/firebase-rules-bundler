@@ -52,12 +52,14 @@ export default {
     main: 'firestore.main.rules',
     output: 'firestore.rules',
   },
-  storage: {
-    doc: true,
-    directoryPath: 'storage',
-    main: 'storage.main.rules',
-    output: 'storage.rules',
-  },
+  storage: [
+    {
+      doc: true,
+      directoryPath: 'storage',
+      main: 'storage.main.rules',
+      output: 'storage.rules',
+    }
+  ],
 }
 ```
 

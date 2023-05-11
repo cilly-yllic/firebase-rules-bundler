@@ -6,7 +6,7 @@ export interface Setting {
 }
 export interface Settings<T = Setting> {
   firestore: T
-  storage: T
+  storage: T[]
 }
 
 export type RcSetting = Partial<Setting>
