@@ -60,3 +60,5 @@ export default {
   },
 }
 ```
+
+[example files](https://github.com/cilly-yllic/firebase-rules-bundler/tree/main/example)
