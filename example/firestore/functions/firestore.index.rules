@@ -1,0 +1,2 @@
+// @import ./firestore.resource.rules
+// @import ./firestore.auth.rules

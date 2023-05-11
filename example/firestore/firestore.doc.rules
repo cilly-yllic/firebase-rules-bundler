@@ -1,0 +1,59 @@
+rules_version = '2';
+
+/**
+ * @file ./functions/firestore.index.rules
+ * @from firestore/firestore.main.rules
+ */
+/**
+ * @file ./firestore.resource.rules
+ * @from firestore/functions/firestore.index.rules
+ */
+function existingData() {
+  return resource.data;
+}
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- bottom of 【./firestore.resource.rules】 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+/**
+ * @file ./firestore.auth.rules
+ * @from firestore/functions/firestore.index.rules
+ */
+function getAuth() {
+  return request.auth;
+}
+function getUid() {
+  return getAuth().uid;
+}
+
+function isAuthenticated() {
+  return getAuth() != null;
+}
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- bottom of 【./firestore.auth.rules】 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- bottom of 【./functions/firestore.index.rules】 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    /**
+     * @file ./hero/index.rules
+     * @from firestore/firestore.main.rules
+     */
+    match /icons/{iconId} {
+      /**
+       * @file ./functions.rules
+       * @from firestore/hero/index.rules
+       */
+      function isOpen(data) {
+        return data.isOpen
+      }
+      //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- bottom of 【./functions.rules】 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+      /**
+       * @file ./operation.rules
+       * @from firestore/hero/index.rules
+       */
+      allow read: if isOpen(existingData());
+      allow create: if isAuthenticated();
+      allow update: if false;
+      allow delete: if false;
+      //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- bottom of 【./operation.rules】 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    }
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- bottom of 【./hero/index.rules】 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  }
+}

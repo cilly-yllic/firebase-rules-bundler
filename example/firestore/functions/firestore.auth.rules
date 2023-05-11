@@ -1,0 +1,10 @@
+function getAuth() {
+  return request.auth;
+}
+function getUid() {
+  return getAuth().uid;
+}
+
+function isAuthenticated() {
+  return getAuth() != null;
+}

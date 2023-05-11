@@ -1,0 +1,3 @@
+function existingData() {
+  return resource.data;
+}

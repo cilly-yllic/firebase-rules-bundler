@@ -1,0 +1,29 @@
+rules_version = '2';
+
+function existingData() {
+  return resource.data;
+}
+function getAuth() {
+  return request.auth;
+}
+function getUid() {
+  return getAuth().uid;
+}
+
+function isAuthenticated() {
+  return getAuth() != null;
+}
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /icons/{iconId} {
+      function isOpen(data) {
+        return data.isOpen
+      }
+      allow read: if isOpen(existingData());
+      allow create: if isAuthenticated();
+      allow update: if false;
+      allow delete: if false;
+    }
+  }
+}

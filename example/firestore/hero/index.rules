@@ -1,0 +1,4 @@
+match /icons/{iconId} {
+  // @import ./functions.rules
+  // @import ./operation.rules
+}

@@ -1,0 +1,4 @@
+allow read: if isOpen(existingData());
+allow create: if isAuthenticated();
+allow update: if false;
+allow delete: if false;

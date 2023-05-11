@@ -1,0 +1,5 @@
+.eslintrc.cjs
+package.json
+package-lock.json
+/lib
+.lintstagedrc
