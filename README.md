@@ -42,7 +42,7 @@ $ npm run frb -- bundle
 $ npm run frb -- bundle --only firestore
 ```
 
-### set frbrc.js
+### set .frbrc.js
 
 ```js
 export default {
