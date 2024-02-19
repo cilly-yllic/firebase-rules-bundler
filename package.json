@@ -1,8 +1,8 @@
 {
   "name": "firebase-rules-bundler",
   "type": "module",
-  "version": "1.0.4",
-  "description": "",
+  "version": "2.0.0",
+  "description": "CLI tool that generates a consolidated file from separated files for Firebase Firestore or Storage rules.",
   "types": "./lib/src/cli/index.d.ts",
   "main": "./lib/src/cli/index.js",
   "bin": {
