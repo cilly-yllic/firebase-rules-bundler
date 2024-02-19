@@ -58,12 +58,13 @@ export default {
       directoryPath: 'storage',
       main: 'storage.main.rules',
       output: 'storage.rules',
-    }
+    },
   ],
 }
 ```
 
 [example files](https://github.com/cilly-yllic/firebase-rules-bundler/tree/main/example)
+
 ```firebase_rules
 rules_version = '2';
 

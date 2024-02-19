@@ -3,3 +3,5 @@ package.json
 package-lock.json
 /lib
 .lintstagedrc
+tsconfig.json
+tsconfig.*.json

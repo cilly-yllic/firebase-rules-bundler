@@ -1,6 +1,14 @@
+/**
+ * Alias subpath import (`dist/cjs/*`) to top-level path mapping (`rxjs/*`)
+ * Previously this was done by placing cjs to top-level package when it's published -
+ * Now build uses `dist` as explicit output subpath so we generate top-level alias here instead.
+ */
+/* eslint-disable  @typescript-eslint/no-var-requires */
 const fsEx = require('fs-extra')
 const fs = require('fs')
 const path = require('path')
+const { name } = require('../package.json')
+/* eslint-enable  @typescript-eslint/no-var-requires */
 
 const getFiles = (dir, files_) => {
   files_ = files_ || []
@@ -39,11 +47,11 @@ aliasRoot.forEach(alias => {
     .map(() => '..')
     .join('/')
   const pkgManifest = {
-    name: `alter-firestore-${alias.split(/\//g).join('-')}`,
+    name: `${name.replace(/\//g, '-')}-${alias.split(/\//g).join('-')}`,
     types: `${relative}/${PREFIX}/${alias}.d.ts`,
     main: `${relative}/${PREFIX}/${alias}.js`,
     sideEffects: false,
   }
 
-  fsEx.writeJson(path.resolve(__dirname, `../${alias}/package.json`), pkgManifest, { spaces: 2 })
+  fsEx.writeJSON(path.resolve(__dirname, `../${alias}/package.json`), pkgManifest, { spaces: 2 })
 })
