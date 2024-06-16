@@ -2,10 +2,10 @@ import { platform } from 'node:process'
 
 import { cyan } from 'colorette'
 
-import { ActionArg } from '../../../internal/types/command.js'
-import { HelpOptions } from '../../../internal/types/options.js'
-import { logger } from '../../../internal/utils/logger.js'
-import { get, ENVS } from '../../../internal/utils/process.js'
+import { ActionArg } from '../../../_internal/types/command.js'
+import { HelpOptions } from '../../../_internal/types/options.js'
+import { logger } from '../../../_internal/utils/logger.js'
+import { get, ENVS } from '../../../_internal/utils/process.js'
 
 const ASCII_ART = `
  _____   _____         _____   _   _   __   _   _____   _       _____   _____

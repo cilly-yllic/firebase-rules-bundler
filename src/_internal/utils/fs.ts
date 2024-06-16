@@ -1,4 +1,14 @@
-import { readdirSync, statSync } from 'fs'
+import { readdirSync, readFileSync, statSync } from 'fs'
+
+import { isJson } from 'my-gadgetry/type-check'
+
+export const readJsonFileSync = (path: string, encode: BufferEncoding = 'utf-8') => {
+  const json = isJson(readFileSync(path, encode))
+  if (!json) {
+    return {}
+  }
+  return json
+}
 
 export const getFiles = (dir: string, _files: string[] = []) => {
   const files = readdirSync(dir)

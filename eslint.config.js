@@ -26,15 +26,16 @@ export default tseslint.config(
   },
   {
     ignores: [
-      'lib/**',
+      'dist/**',
       '**/*.json',
       '**/*.yml',
       '**/*.js',
       '**/*.cjs',
       '**/*.mjs',
-      '/types/**',
-      '/utils/**',
+      'jest.config.ts',
+      '**/*.spec.ts',
       '/src/templates/**',
+      '/tools/**',
     ],
   },
   {
@@ -47,7 +48,7 @@ export default tseslint.config(
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
-        project: 'tsconfig.spec.json',
+        project: 'tsconfig.eslint.json',
         tsconfigRootDir: import.meta.dirname,
       },
       ecmaVersion: 'latest',
@@ -69,7 +70,6 @@ export default tseslint.config(
   },
   {
     rules: {
-      'import/extensions': ['error', 'always'],
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',
