@@ -1,14 +1,14 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { join, dirname } from 'path'
 
-import { ALIASES, Type, TYPES } from '../../../internal/types/bundle-type.js'
-import { ActionArg } from '../../../internal/types/command.js'
-import { BundleOptions } from '../../../internal/types/options.js'
-import { Setting } from '../../../internal/types/settings.js'
-import { importLineRegExp, indentRegExp } from '../../../internal/utils/configs.js'
-import { table, labeledBullet, labeledSuccess } from '../../../internal/utils/log.js'
-import { getFullPath } from '../../../internal/utils/path.js'
-import { ENVS, get } from '../../../internal/utils/process.js'
+import { ALIASES, Type, TYPES } from '../../../_internal/types/bundle-type.js'
+import { ActionArg } from '../../../_internal/types/command.js'
+import { BundleOptions } from '../../../_internal/types/options.js'
+import { Setting } from '../../../_internal/types/settings.js'
+import { importLineRegExp, indentRegExp } from '../../../_internal/utils/configs.js'
+import { table, labeledBullet, labeledSuccess } from '../../../_internal/utils/log.js'
+import { getFullPath } from '../../../_internal/utils/path.js'
+import { ENVS, get } from '../../../_internal/utils/process.js'
 
 const SEPARATOR = '=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
 const fileMap = new Map()

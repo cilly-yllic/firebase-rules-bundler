@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { program } from 'commander'
 
-import { error } from '../internal/utils/log.js'
-import { get, ENVS, init } from '../internal/utils/process.js'
+import { error } from '../_internal/utils/log.js'
+import { get, ENVS, init } from '../_internal/utils/process.js'
 
 import { init as initCommands } from './commands/index.js'
 
