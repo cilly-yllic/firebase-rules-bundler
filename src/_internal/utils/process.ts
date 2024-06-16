@@ -6,6 +6,7 @@ import { readJsonFileSync } from './fs.js'
 
 export * from '../types/process.js'
 
+const __dirname = import.meta.dirname
 export const args = process.argv.slice(2)
 
 export const init = () => {
