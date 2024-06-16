@@ -1,7 +1,7 @@
 import { Command as Program } from 'commander'
 
-import { HelpOptions } from '../../../internal/types/options.js'
-import { CommandClass } from '../../../internal/utils/command.js'
+import { HelpOptions } from '../../../_internal/types/options.js'
+import { CommandClass } from '../../../_internal/utils/command.js'
 
 import { action } from './action.js'
 

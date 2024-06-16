@@ -3,18 +3,22 @@
     "target": "esNext",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
+    "types": ["jest", "node"],
     "allowJs": true,
     "checkJs": false,
     "declaration": true,
     "strict": true,
-    "outDir": "lib",
+    "outDir": "dist",
+    "rootDir": "./src",
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "sourceMap": true,
+    "skipLibCheck": true,
     "typeRoots": ["node_modules/@types", "src/types"],
     "baseUrl": "./",
     "paths": {}
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.spec.ts", "src/**/__tests__/**"]
 }
